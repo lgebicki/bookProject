@@ -1,4 +1,4 @@
-angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $state) {
+angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $state, $firebaseAuth, $firebaseObject, $firebaseArray) {
 
     $scope.steps.set(3)
 
@@ -6,20 +6,52 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
     $scope.type = stepsdata.step2
     $scope.title = 'random title album'
 
-    $scope.authors = [
-        {
+    $scope.loading = true
+    $scope.data = {}
+    $scope.authObj = $firebaseAuth();
+    var firebaseUser = $scope.authObj.$getAuth();
+    // basic reference
+    var ref = firebase.database().ref(firebaseUser.uid);
+    //  reference to the list of items
+    var listref = ref.child("list")
+
+    var obj = $firebaseObject(ref);
+    var list = $firebaseArray(listref);
+
+    $scope.list = list;
+
+     obj.$bindTo($scope, "data").then(function() {
+      //here we got server data
+      $scope.loading = false
+      console.log($scope.data)
+
+      // $scope.data.ournewdata = "some random album title";  // will be saved to the database
+    });
+
+    // $scope.addit = function(){
+    //    list.$add({ text: "bar" })
+    // }
+
+    // $scope.authors = [
+    //     {
+    //         name: "new author",
+    //         init: "initials",
+    //         surname: "surname"
+    //     }
+    // ]
+    $scope.authors = []
+
+    $scope.addAuthor = function(){
+        list.$add({ 
             name: "new author",
             init: "initials",
             surname: "surname"
-        }
-    ]
-
-    $scope.addAuthor = function(){
-        $scope.authors.unshift({
-             name: "new author",
-            init: "initials",
-            surname: "surname"
-        })
+         })
+        // $scope.authors.unshift({
+        //      name: "new author",
+        //     init: "initials",
+        //     surname: "surname"
+        // })
     }
 
     $scope.getCitation = function(){

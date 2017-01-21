@@ -6,18 +6,18 @@
 </div>
 <div layout="row">
   <div flex="33" layout="column" layout-align="start center">
-    <div ng-repeat="item in authors">
+    <div ng-repeat="item in list">
       <md-input-container class="md-icon-float md-block input-parameter">
           <label>Author name</label>
-          <input ng-model="item.name"  name="auth" type="text" >
+          <input ng-model="item.name" ng-change="list.$save(item)"  name="auth" type="text" >
       </md-input-container>
       <md-input-container class="md-icon-float md-block input-parameter">
           <label>Author initials</label>
-          <input ng-model="item.init"   name="init" type="text" >
+          <input ng-model="item.init"  ng-change="list.$save(item)" name="init" type="text" >
       </md-input-container>
       <md-input-container class="md-icon-float md-block input-parameter">
           <label>Author surname</label>
-          <input ng-model="item.surname"  name="init" type="text" >
+          <input ng-model="item.surname" ng-change="list.$save(item)" name="init" type="text" >
       </md-input-container>
       <hr />
     </div>
@@ -49,7 +49,7 @@
   <div flex="33" layout="column">
     <md-input-container class="md-icon-float md-block input-parameter">
          <label>Edition</label>
-         <input  name="auth" type="text" >
+         <input ng-model="data.ournewdata"  name="auth" type="text" >
     </md-input-container>
     <md-input-container class="md-icon-float md-block input-parameter">
          <label>Page</label>
