@@ -1,0 +1,17 @@
+<div class="step3-container md-whiteframe-1dp" >
+
+
+  <div ng-show="type == 'Song'">
+    <ng-include  src="'views/steps/step3/song.html'" />
+  </div>
+  
+  <div ng-show="type != 'Song'">
+    <ng-include  src="'views/steps/step3/other.html'" />
+  </div>
+  
+  <div layout="row" layout-align="center start" >
+     <md-button class="md-raised md-primary" ng-click="getCitation()">Get citations</md-button>
+  </div>
+
+
+</div>
