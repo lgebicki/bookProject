@@ -8,15 +8,23 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
 
     $scope.loading = true
     $scope.data = {}
+
+    //this is authentification stuff - user id , etc
     $scope.authObj = $firebaseAuth();
     var firebaseUser = $scope.authObj.$getAuth();
+
+
+    //
     // basic reference
+    //
     var ref = firebase.database().ref(firebaseUser.uid);
     //  reference to the list of items
     var listref = ref.child("list")
+    
 
     var obj = $firebaseObject(ref);
     var list = $firebaseArray(listref);
+    
 
     $scope.list = list;
 

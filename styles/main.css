@@ -62,3 +62,13 @@
 .tile3:hover{
   background-color: #FFCA28;
 }
+
+
+
+
+.projects-container{
+  background-color: white;
+  margin-top: 40px;
+  max-width: 100%;
+  width: 800px;
+}

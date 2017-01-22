@@ -1,0 +1,31 @@
+<div class="projects-container md-whiteframe-1dp">
+
+
+
+	<md-toolbar class="md-table-toolbar md-default">
+	  <div class="md-toolbar-tools">
+	    <span>Nutrition</span>
+	  </div>
+	</md-toolbar>
+
+	<!-- exact table from live demo -->
+	<md-table-container>
+	  <table md-table md-row-select multiple ng-model="selected" >
+	    <thead md-head >
+	      <tr md-row>
+	        <th md-column md-order-by="nameToLower"><span>Dessert (100g serving)</span></th>
+	        <th md-column md-numeric md-order-by="calories.value"><span>Calories</span></th>
+	        
+	      </tr>
+	    </thead>
+	    <tbody md-body>
+	      <tr md-row md-select="item" md-select-id="name" md-auto-select ng-repeat="item in data">
+	        <td md-cell>{{item.name}}</td>
+	        <td md-cell>{{item.value}}</td>
+	        
+	      </tr>
+	    </tbody>
+	  </table>
+	</md-table-container>
+
+</div>

@@ -67,5 +67,19 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
       steps: {templateUrl: "views/steps/step5.html", controller: 'Step5Ctrl'}
     }
   })
+   $stateProvider.state('app.finalPage',{
+    url: '/final',
+    abstract: false,
+    views: {
+      app: {templateUrl: "views/finalPage.html", controller: 'FinalCtrl'}
+    }
+  }) 
+   $stateProvider.state('app.projects',{
+    url: '/projects',
+    abstract: false,
+    views: {
+      app: {templateUrl: "views/projects.html", controller: 'ProjectsCtrl'}
+    }
+  })
 
 })
