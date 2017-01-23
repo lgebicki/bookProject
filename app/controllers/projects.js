@@ -1,4 +1,4 @@
-angular.module("bookapp").controller("ProjectsCtrl", function($scope, $firebaseObject, $firebaseAuth, $firebaseArray, $mdToast) {
+angular.module("bookapp").controller("ProjectsCtrl", function($scope, $firebaseObject, $firebaseAuth, $firebaseArray, $mdToast, $mdDialog, $state) {
 
 	$scope.authObj = $firebaseAuth();
 	var firebaseUser = $scope.authObj.$getAuth();
@@ -6,6 +6,8 @@ angular.module("bookapp").controller("ProjectsCtrl", function($scope, $firebaseO
 	var listref = ref.child("projects")
 	var list = $firebaseArray(listref);
 	$scope.list = list;
+	console.log($scope.list)
+	$scope.currentProject = "";
 
 	$scope.promise = $scope.list.$loaded()
 	console.log($scope.promise)
@@ -26,7 +28,10 @@ angular.module("bookapp").controller("ProjectsCtrl", function($scope, $firebaseO
 				break;
 			case 13:
 				if ($scope.newItemName.length>4){
-				   list.$add({ name: $scope.newItemName })
+				   list.$add({ name: $scope.newItemName }).then(function(ref){
+				   	$scope.showConfirm(ref.key)
+				   })
+				     $scope.currentProject = ($scope.newItemName);
 					 $scope.newItemName = ""
 					 $scope.showInput = false;
 				} else {
@@ -48,6 +53,21 @@ angular.module("bookapp").controller("ProjectsCtrl", function($scope, $firebaseO
 		});
 	}
 
+	$scope.showConfirm = function(id) {
+	    // Appending dialog to document.body to cover sidenav in docs app
+	    var confirm = $mdDialog.confirm()
+	          .title('Your project is empty!')
+	          .textContent(`Would you like to add some stuff to ${$scope.currentProject} project?`)
+	          .ariaLabel('Lucky day')
+	          .ok('Sure!')
+	          .cancel("Leave it empty for now");
+
+	    $mdDialog.show(confirm).then(function() {
+	      $state.go('app.finalPage', {id: id})
+	    }, function() {
+	      console.log('rejected')
+	    });
+	  };
 
 
 })

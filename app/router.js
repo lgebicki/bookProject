@@ -68,7 +68,7 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     }
   })
    $stateProvider.state('app.finalPage',{
-    url: '/final',
+    url: '/final?id',
     abstract: false,
     views: {
       app: {templateUrl: "views/finalPage.html", controller: 'FinalCtrl'}

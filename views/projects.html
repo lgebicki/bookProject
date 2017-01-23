@@ -43,9 +43,9 @@
 	    </thead>
 	    <tbody md-body>
 	      <tr md-row md-select="item" md-select-id="name" class="md-table-row" md-auto-select ng-repeat="item in list">
-	        <td md-cell>{{item.name}}</td>
+	        <td md-cell ui-sref="app.finalPage({id: item.$id})">{{item.name}}</td>
 	        <td md-cell class="projects-bin-icon">
-						<md-button class="md-icon-button" aria-label="Use Android" ng-click="removeItem(item)">
+					<md-button class="md-icon-button" aria-label="Use Android" ng-click="removeItem(item)">
 				        <md-icon class="material-icons ">delete</md-icon>
 				    </md-button>
 					</td>

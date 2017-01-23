@@ -30,3 +30,46 @@
 textarea:focus, input:focus, button:focus, li:focus, a:focus, select:focus, md-icon:focus, div:focus{
 	outline: 0!important;
 }
+
+.finalPage-container{
+  width: 800px;
+  max-width: 100%;
+  margin-top: 40px;
+}
+
+.whiteback{
+  background-color: white;
+}
+
+.final-header-container{
+  width: 100%;
+  height: 64px;
+  margin-bottom: 20px;
+}
+.final-content-block{
+  width: 100%;
+}
+.item-content-block{
+  width: calc(50% - 10px);
+  height: 600px;
+  
+}
+.item-title{
+  margin-top: 10px;
+}
+
+.citation-block-content{
+  overflow-y: auto!important;
+  height: 558px;
+}
+
+/*.citation-item-list{
+  background-color: red!important;
+}*/
+.citation-item-list  .citation-item-button{
+  opacity: 0;
+  transition: all 0.2s;
+}
+.citation-item-list:hover  .citation-item-button{
+  opacity: 1!important;
+}
