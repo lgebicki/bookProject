@@ -1,0 +1,32 @@
+.md-table-row{
+  transition: all 0.1s;
+  cursor: pointer;
+}
+.md-table-row:hover{
+  background-color: #eeeeee;
+}
+
+.projects-bin-icon{
+  text-align: right!important;
+  transition: all 0.2s;
+}
+.projects-bin-icon > .md-icon-button{
+  opacity: 0;
+
+}
+
+
+.md-table-row:hover > .projects-bin-icon > .md-icon-button{
+  opacity: 1;
+}
+
+.projects-new-item{
+  background-color: rgba(252,252,252,1)!important;
+}
+.projects-new-item  .input-field{
+  border: none;
+  background-color: transparent;
+}
+textarea:focus, input:focus, button:focus, li:focus, a:focus, select:focus, md-icon:focus, div:focus{
+	outline: 0!important;
+}
