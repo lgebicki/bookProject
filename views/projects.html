@@ -24,7 +24,7 @@
 
 	<md-toolbar class="md-table-toolbar projects-new-item md-default" ng-show="showInput">
 	  <div class="md-toolbar-tools">
-	    <input class="input-field" flex type="text" placeholder="New project title">
+	    <input class="input-field" flex ng-model="newItemName" type="text" placeholder="New project title" ng-keyup="handleInput($event)">
 	    <md-button class="md-icon-button" ng-click="showInput = false">
 	      <md-icon>close</md-icon>
 	    </md-button>
@@ -33,7 +33,7 @@
 
 	<!-- exact table from live demo -->
 	<md-table-container>
-	  <table md-table  >
+	  <table md-table  md-progress="promise">
 	    <thead md-head >
 	      <tr md-row>
 	        <th md-column><span>Name</span></th>
@@ -42,10 +42,10 @@
 	      </tr>
 	    </thead>
 	    <tbody md-body>
-	      <tr md-row md-select="item" md-select-id="name" class="md-table-row" md-auto-select ng-repeat="item in data">
+	      <tr md-row md-select="item" md-select-id="name" class="md-table-row" md-auto-select ng-repeat="item in list">
 	        <td md-cell>{{item.name}}</td>
 	        <td md-cell class="projects-bin-icon">
-						<md-button class="md-icon-button" aria-label="Use Android">
+						<md-button class="md-icon-button" aria-label="Use Android" ng-click="removeItem(item)">
 				        <md-icon class="material-icons ">delete</md-icon>
 				    </md-button>
 					</td>
