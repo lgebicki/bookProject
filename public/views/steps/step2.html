@@ -1,0 +1,46 @@
+<div class="step2-container">
+  <md-content layout-fill style="padding: 10px;">
+      <md-grid-list md-cols="3" md-row-height="8:5" md-gutter="20px">
+
+          <md-grid-tile class="step1-tile" md-colspan="1" md-rowspan="1" ng-repeat="item in list" ng-click="nextStep(item)">
+               {{item.name}}
+          </md-grid-tile>
+
+      </md-grid-list>
+  </md-content>
+</div>
+
+
+<!--
+<md-input-container class="md-icon-float md-block">
+     <label>Author Name</label>
+     <input ng-model="data.golem" name="Author Name" type="text" required>
+</md-input-container>
+<md-input-container class="md-icon-float md-block">
+     <label>Author Initials</label>
+     <input ng-model="string" name="Author Initials" type="text" required>
+</md-input-container>
+<md-input-container class="md-icon-float md-block">
+     <label>Author Surname</label>
+     <input ng-model="string" name="Author Surname" type="text" required>
+</md-input-container>
+<md-input-container class="md-icon-float md-block">
+     <label>Title</label>
+     <input ng-model="string" name="Title" type="text" required>
+</md-input-container>
+<md-input-container class="md-icon-float md-block">
+     <label>Edition</label>
+     <input ng-model="string" name="Edition" type="number" required>
+</md-input-container>
+<md-input-container class="md-icon-float md-block">
+     <label>Publisher</label>
+     <input ng-model="string" name="Publisher Name" type="text" required>
+</md-input-container>
+<md-input-container class="md-icon-float md-block">
+     <label>Place of Publication</label>
+     <input ng-model="string" name="Place of Publication" type="text" required>
+</md-input-container>
+<md-input-container class="md-icon-float md-block">
+     <label>Year</label>
+     <input ng-model="string" name="Year of Publication" type="text" required>
+</md-input-container> -->

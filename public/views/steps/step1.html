@@ -1,0 +1,13 @@
+<div class="step1-container">
+    <md-content layout-fill style="padding: 10px;">
+        <md-grid-list md-cols="3" md-row-height="8:5" md-gutter="20px">
+
+            <md-grid-tile class="step1-tile" md-colspan="1" md-rowspan="1" ng-repeat="item in list" ng-click="nextStep(item)">
+                 {{item.name}}
+            </md-grid-tile>
+
+
+
+        </md-grid-list>
+    </md-content>
+</div>

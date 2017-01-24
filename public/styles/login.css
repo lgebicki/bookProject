@@ -1,0 +1,28 @@
+body{
+  text-align: center;
+}
+.login-container{
+  /*display: inline-block;*/
+  width: 350px;
+  min-height: 420px;
+  background-color: white;
+  margin-top: 100px;
+}
+
+.login-logo{
+  width: 100px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  opacity: 1;
+
+}
+
+.login-input{
+  margin: 5px 0px 0px 0px;
+  width: 80%;
+  /*margin-top: 100px;*/
+
+}
+.login-input > input{
+  text-align: center;
+}

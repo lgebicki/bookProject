@@ -1,0 +1,81 @@
+<div class="finalPage-container" layout="column">
+
+    <div class="final-header-container whiteback md-whiteframe-1dp" layout="row" layout-align="space-around center">
+              <md-button class="md-raised md-primary">Summary</md-button>
+              <md-button class="md-raised md-primary">New Project</md-button>
+              <md-button class="md-raised md-primary">Your Projects</md-button>
+              <md-button class="md-raised md-primary">Help </md-button>
+              <md-button class="md-raised md-primary">Settings</md-button>
+
+    </div>
+    <div class="final-content-block" layout="row">
+        <div class="item-content-block whiteback md-whiteframe-1dp">
+            <div class="md-headline item-title">  Citations</div>
+            <md-content class="citation-block-content">
+              <md-list flex>
+                <!-- <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader> -->
+                <md-list-item class="md-3-line citation-item-list" ng-repeat="item in todos" ng-click="null" >
+                  
+                  <div class="md-list-item-text" layout="row" layout-align="space-between center">
+                    
+                    <h4>{{ item.what }}</h4>
+                    <md-button class="md-icon-button citation-item-button" aria-label="Use Android" >
+                        <md-icon class="material-icons ">delete</md-icon>
+                    </md-button>
+                  </div>
+                </md-list-item>
+                <md-divider ></md-divider>
+               
+                
+                </md-list>
+                </md-content>          
+        </div>
+        <div flex></div>
+        <div class="item-content-block whiteback md-whiteframe-1dp">
+            
+            <div class="md-headline item-title"> Bibliography</div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- <div class="header" layout="row" layout-align="center center" style="width:100%!; border:solid red;">
+<div class="navigationButtons">Summary</div>
+<div class="navigationButtons">New Project</div>
+<div class="navigationButtons">Help</div>
+<div class="navigationButtons">Settings</div>
+    </div> 
+<div class="step5-container">
+<div class="workspace" layout="row">
+
+<div class="projectsWindow" layout="column" style="width:30%; border:solid red" >
+    <div>Your Projects</div>
+    <div>Your Citations</div>
+    <div>Your Your Bibliographies</div>
+    <div>Your Papers</div>
+    
+</div>
+<div class="currentProjectWindow" layout="row" style="width:70%; border: solid red">
+    <div clas="currentCitations" layout="column" style="width:50%; text-align:left">
+       <label>Your citations</label>
+        <div class="citation">1c</div>
+        <div class="citation">2c</div>
+        <div class="citation">3c</div>
+        <div class="citation">4c</div>
+    </div>
+    <div clas="currentBibliography" layout="column" style="width:50%; text-align:left">
+       <label>Your Bibliography</label>       
+        <div class="bibliography">1b</div>
+        <div class="bibliography">2b</div>
+        <div class="bibliography">3b</div>
+        <div class="bibliography">4b</div>
+        <div class="bibliography">5b</div>
+       
+        
+    </div>
+
+    
+</div>
+</div>
+</div> -->
