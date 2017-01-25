@@ -1,0 +1,63 @@
+<div layout="row" layout-align="center start" >
+  <md-input-container class="md-icon-float md-block search-input">
+       <label>Search</label>
+       <input  name="search" type="text"  >
+  </md-input-container>
+</div>
+<div layout="row">
+  <div flex="33" layout="column" layout-align="start center">
+    <div ng-repeat="item in list">
+      <md-input-container class="md-icon-float md-block input-parameter">
+          <label>Author name</label>
+          <input ng-model="item.name" ng-change="list.$save(item)"  name="auth" type="text" >
+      </md-input-container>
+      <md-input-container class="md-icon-float md-block input-parameter">
+          <label>Author initials</label>
+          <input ng-model="item.init"  ng-change="list.$save(item)" name="init" type="text" >
+      </md-input-container>
+      <md-input-container class="md-icon-float md-block input-parameter">
+          <label>Author surname</label>
+          <input ng-model="item.surname" ng-change="list.$save(item)" name="init" type="text" >
+      </md-input-container>
+      <hr />
+    </div>
+   
+
+    <md-button class="md-fab md-mini md-primary" aria-label="Use Android" ng-click="addAuthor()">
+        <md-icon class="material-icons ">add</md-icon>
+    </md-button>
+  </div>
+
+
+  <div flex="33" layout="column">
+    <md-input-container class="md-icon-float md-block input-parameter">
+         <label>Title</label>
+         <input ng-model="$parent.title" name="auth" type="text" >
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block input-parameter">
+         <label>Publisher</label>
+         <input ng-model="$parent.publisher" name="auth" type="text" >
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block input-parameter">
+         <label>Place of publication</label>
+         <input ng-model="$parent.place" name="auth" type="text" >
+    </md-input-container>
+  </div>
+
+
+
+  <div flex="33" layout="column">
+    <md-input-container class="md-icon-float md-block input-parameter">
+         <label>Edition</label>
+         <input ng-model="data.ournewdata"  name="auth" type="text" >
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block input-parameter">
+         <label>Page</label>
+         <input  name="auth" type="text" >
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block input-parameter">
+         <label>Year</label>
+         <input  name="auth" type="text" >
+    </md-input-container>
+  </div>
+</div>

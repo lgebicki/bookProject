@@ -1,7 +1,6 @@
 angular.module("bookapp").controller("LoginCtrl", function($scope, $firebaseAuth, $state, $mdToast, $timeout, $mdDialog) {
 
   $scope.authObj = $firebaseAuth();
-  $scope.emailsent = false
   var firebaseUser = $scope.authObj.$getAuth();
   if (firebaseUser) {
     console.log("Signed in as:", firebaseUser.uid);
@@ -27,40 +26,6 @@ angular.module("bookapp").controller("LoginCtrl", function($scope, $firebaseAuth
 
     });
 
-  }
-
-  $scope.resendPassword = function(email){
-    $scope.emailsent = true
-    var auth = firebase.auth();
-    // console.log(email)
-    //
-    auth.sendPasswordResetEmail(email).then(function() {
-      // Email sent.
-    }, function(error) {
-      // An error happened.
-    });
-  }
-
-
-  $scope.resetPassword = function(ev){
-    $mdDialog.show({
-      scope: $scope,
-      preserveScope: true,
-      templateUrl: 'views/dialogs/resetpassword.html',
-      parent: angular.element(document.body),
-      targetEvent: ev,
-      clickOutsideToClose:true,
-      fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
-    })
-    .then(function(answer) {
-      $scope.status = 'You said the information was "' + answer + '".';
-    }, function() {
-      $scope.status = 'You cancelled the dialog.';
-    });
-  }
-  $scope.cancel = function(){
-    console.log('yo yo yo')
-    $mdDialog.hide();
   }
 
   $scope.register = function(){

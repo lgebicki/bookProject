@@ -1,0 +1,23 @@
+<div class="steps-navigation" layout="row" layout-align="start center">
+    <md-button class="md-fab md-mini" aria-label="Eat cake" ui-sref="app.steps.one" ng-disabled="steps.index<1">
+        1
+    </md-button>
+    <div class="steps-navigation-inline" flex></div>
+    <md-button class="md-fab md-mini" aria-label="Eat cake" ui-sref="app.steps.two" ng-disabled="steps.index<2">
+        2
+    </md-button>
+    <div class="steps-navigation-inline" flex></div>
+    <md-button class="md-fab md-mini" aria-label="Eat cake" ui-sref="app.steps.three" ng-disabled="steps.index<3">
+        3
+    </md-button>
+    <div class="steps-navigation-inline" flex></div>
+    <md-button class="md-fab md-mini" aria-label="Eat cake" ui-sref="app.steps.four" ng-disabled="steps.index<4">
+        4
+    </md-button>
+    
+</div>
+
+
+<div ui-view="steps">
+
+</div>
