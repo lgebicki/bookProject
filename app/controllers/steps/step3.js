@@ -76,7 +76,13 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
             finalname += item.surname + ', '
         })
         finalname += '.'
-        stepsdata.allauthors = finalname
+        stepsdata.mystuff = $scope.searchQuery
+        // stepsdata.options2 = $scope.input2model
+
+        // stepsdata.step3data = {
+        //     option1:  $scope.input1model,
+        //     option2:  $scope.input2model,
+        // }        
 
         if ($state.params.id){
           $state.go('app.steps.four',{id: $state.params.id})

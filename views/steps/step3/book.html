@@ -1,7 +1,7 @@
 <div layout="row" layout-align="center start" >
   <md-input-container class="md-icon-float md-block search-input">
        <label>Search</label>
-       <input  name="search" type="text" ng-model="searchQuery" >
+       <input  name="search" type="text" ng-model="$parent.searchQuery" >
   </md-input-container>
   <md-button class="md-fab md-mini md-primary" aria-label="Use Android" ng-click="showDialog()">
         <md-icon class="material-icons ">search</md-icon>
