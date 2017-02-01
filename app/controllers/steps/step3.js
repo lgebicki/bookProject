@@ -1,4 +1,4 @@
-angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $state, $firebaseAuth, $firebaseObject, $firebaseArray) {
+angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $state, $firebaseAuth, $firebaseObject, $firebaseArray, $mdDialog, $http) {
 
     $scope.steps.set(3)
 
@@ -85,5 +85,42 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
         }
 
     }
+    $scope.showDialog = function(ev){
+        
 
+         $http({
+            method: 'GET',
+            url: 'https://wordcat.herokuapp.com/?book=' + $scope.searchQuery
+          }).then(function successCallback(response) {
+            console.log('yes')
+            
+            //
+            var x2js = new X2JS();
+            var finaldata = x2js.xml_str2json(response.data);
+            
+            $scope.booklist =  finaldata.feed.entry.map(function(item, index){
+                return {
+                    title: item.title,
+                    author: item.author.name
+                }
+            })
+             $mdDialog.show({
+              scope: $scope,
+              preserveScope: true,
+              templateUrl: 'views/dialogs/search.html',
+              parent: angular.element(document.body),
+              targetEvent: ev,
+              clickOutsideToClose:true,
+              fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+            })
+            .then(function(answer) {
+            }, function() {
+            });              
+
+            }, function errorCallback(response) {
+              console.log(response)
+            });
+        
+
+     }
 })

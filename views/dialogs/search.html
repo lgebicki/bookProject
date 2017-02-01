@@ -1,0 +1,36 @@
+<md-dialog aria-label="Mango (Fruit)">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Search Your Book</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Use Android" ng-click="cancel()">
+            <md-icon class="material-icons ">clear</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-content class="citation-block-content">
+              <md-list flex>
+                <!-- <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader> -->
+                <md-list-item class="md-3-line citation-item-list" ng-repeat="item in booklist" >
+
+                  <div class="md-list-item-text" >
+
+                    <h3>{{ item.title }}</h3>
+                    <h4>{{ item.author }}</h4>
+                   
+                  </div>
+                </md-list-item>
+                <md-divider ></md-divider>
+                </md-list>
+            </md-content>
+
+      </div>
+    </md-dialog-content>
+
+
+  </form>
+</md-dialog>

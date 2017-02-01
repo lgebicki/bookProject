@@ -8,12 +8,11 @@
 
 
 	<div ng-show="!loading">
-		<div ng-show="type == 'Song'">
-	    <ng-include  src="'views/steps/step3/song.html'" />
+		<div ng-show="type == 'Book'">
+	    <ng-include  src="'views/steps/step3/book.html'" />
 	  </div>
-	  
-	  <div ng-show="type != 'Song'">
-	    <ng-include  src="'views/steps/step3/other.html'" />
+	  <div ng-show="type == 'Song'">
+	    <ng-include  src="'views/steps/step3/song.html'" />
 	  </div>
 	  
 	  <div layout="row" layout-align="center start" >
