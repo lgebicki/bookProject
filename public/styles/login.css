@@ -26,3 +26,15 @@ body{
 .login-input > input{
   text-align: center;
 }
+
+
+.forgot-password{
+  margin-top: 10px;
+  cursor: pointer;
+  color: rgb(0,150,136);
+  opacity: 0.8;
+  transition: all 0.2s;
+}
+.forgot-password:hover{
+  opacity: 1;
+}
