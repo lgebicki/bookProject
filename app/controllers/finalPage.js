@@ -1,6 +1,6 @@
 angular.module("bookapp").controller("FinalCtrl", function($scope, $firebaseArray, $firebaseAuth, $state) {
 
-
+	$scope.id = $state.params.id
 	$scope.authObj = $firebaseAuth();
 	var firebaseUser = $scope.authObj.$getAuth();
 	var ref = firebase.database().ref(firebaseUser.uid);
@@ -8,11 +8,11 @@ angular.module("bookapp").controller("FinalCtrl", function($scope, $firebaseArra
 	var list = $firebaseArray(listref);
 	list.$loaded().then(function(){
 
-		var rec = list.$getRecord($state.params.id);	
+		var rec = list.$getRecord($state.params.id);
 		console.log(rec)
 	})
 	imagePath = ""
-	
+
     $scope.todos = [
       {
         face : imagePath,
@@ -49,6 +49,6 @@ angular.module("bookapp").controller("FinalCtrl", function($scope, $firebaseArra
         when: "",
         notes: ""
       },
-    ];	
-	
+    ];
+
 })

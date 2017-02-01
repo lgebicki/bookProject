@@ -2,7 +2,7 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
 
     $scope.steps.set(3)
 
-    console.log(stepsdata)
+
     $scope.type = stepsdata.step2
     $scope.title = 'random title album'
 
@@ -20,11 +20,11 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
     var ref = firebase.database().ref(firebaseUser.uid);
     //  reference to the list of items
     var listref = ref.child("list")
-    
+
 
     var obj = $firebaseObject(ref);
     var list = $firebaseArray(listref);
-    
+
 
     $scope.list = list;
 
@@ -50,7 +50,7 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
     $scope.authors = []
 
     $scope.addAuthor = function(){
-        list.$add({ 
+        list.$add({
             name: "new author",
             init: "initials",
             surname: "surname"
@@ -77,9 +77,13 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
         })
         finalname += '.'
         stepsdata.allauthors = finalname
-   
-    
-        $state.go('app.steps.four')
+
+        if ($state.params.id){
+          $state.go('app.steps.four',{id: $state.params.id})
+        } else {
+          $state.go('app.steps.four')
+        }
+
     }
 
 })

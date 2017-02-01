@@ -13,12 +13,16 @@ angular.module("bookapp").controller("Step2Ctrl", function($scope, $firebaseAuth
     {name: 'Movie', id: 7},
     {name: 'Other', id: 8}
   ]
-  
+
   $scope.nextStep = function(item){
     stepsdata.step2 = item.name
-    $state.go('app.steps.three')
+    if ($state.params.id){
+      $state.go('app.steps.three',{id: $state.params.id})
+    } else {
+      $state.go('app.steps.three')
+    }
   }
-  
+
 
   // console.log(stepsdata)
   //

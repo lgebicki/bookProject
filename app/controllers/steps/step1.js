@@ -15,7 +15,12 @@ angular.module("bookapp").controller("Step1Ctrl", function($scope, stepsdata, $s
 
   $scope.nextStep = function(item){
     stepsdata.step1 = item.name
-    $state.go('app.steps.two')
+    if ($state.params.id){
+      $state.go('app.steps.two',{id: $state.params.id})
+    } else {
+      $state.go('app.steps.two')
+    }
+
   }
 
 })
