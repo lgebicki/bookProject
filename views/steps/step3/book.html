@@ -25,10 +25,14 @@
       <hr />
     </div>
    
-
+    <div layout="row">
     <md-button class="md-fab md-mini md-primary" aria-label="Use Android" ng-click="addAuthor()">
         <md-icon class="material-icons ">add</md-icon>
+    </md-button> 
+    <md-button class="md-fab md-mini md-primary" aria-label="Use Android" ng-click="removeAuthor()">
+        <md-icon class="material-icons">remove</md-icon>
     </md-button>
+    </div>
   </div>
 
 
@@ -58,6 +62,11 @@
          <label>Page</label>
          <input  name="page" type="text" >
     </md-input-container>
+    <div flex-gt-sm="50">
+          <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">
+            More pages
+          </md-checkbox>
+        </div>
     <md-input-container class="md-icon-float md-block input-parameter">
          <label>Year</label>
          <input  name="year" type="text" >

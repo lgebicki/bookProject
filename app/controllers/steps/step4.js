@@ -1,4 +1,4 @@
-angular.module("bookapp").controller("Step4Ctrl", function($scope, stepsdata,$state) {
+angular.module("bookapp").controller("Step4Ctrl", function($scope, stepsdata, $state) {
 
     $scope.steps.set(4)
     console.log('------ our data --------')

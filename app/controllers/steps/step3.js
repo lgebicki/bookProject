@@ -61,6 +61,13 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
         //     surname: "surname"
         // })
     }
+    $scope.removeAuthor = function(){
+        list.$remove({
+            name: "new author",
+            init: "initials",
+            surname: "surname"
+        })
+    }
 
     $scope.getCitation = function(){
         console.log($scope.title)
