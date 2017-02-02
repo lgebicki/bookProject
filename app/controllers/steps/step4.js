@@ -7,6 +7,7 @@ angular.module("bookapp").controller("Step4Ctrl", function($scope, stepsdata,$st
     $scope.publisher = stepsdata.publisher
     $scope.place = stepsdata.place
     $scope.allauthors = stepsdata.mystuff
+    $scope.auth = stepsdata.mystuff
 
 
     $scope.nextStep = function(){

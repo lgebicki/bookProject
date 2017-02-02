@@ -4,7 +4,7 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
 
 
     $scope.type = stepsdata.step2
-    $scope.title = 'random title album'
+    $scope.title = 'title'
 
     $scope.loading = true
     $scope.data = {}
@@ -77,6 +77,7 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
         })
         finalname += '.'
         stepsdata.mystuff = $scope.searchQuery
+        // stepsdata.
         // stepsdata.options2 = $scope.input2model
 
         // stepsdata.step3data = {
