@@ -1,11 +1,21 @@
 <div class="step4-container">
 <div class="readyCitation" layout="row" style="font-size:20px;margin-top:40px;" >
 <label class="citationLabel" style="width:30%;"> <i><b>Your citation: </b></i>  </label><br /><br /><br />
-<div class="citationWindow" style="border: solid black 1px; font-size:35px; width:70%;"> {{surname}} ({{year}} p.{{page}})</div>
+<div class="citationWindow" style="border: solid black 1px; font-size:35px; width:70%;"> {{authors[0].surname}} ({{year}} 
+	<span ng-hide="stepsdata.endPage">p. {{page}})</span>
+	<span ng-show="stepsdata.endPage">pp. {{stepsdata.startpage}} - {{stepsdata.lastpage}})</span>
+	
+</div>
 </div><br /><br />
 <div class="readyBibliography" layout="row" style="font-size:20px; margin-top:40px;" >
 <label class="bibliographyLabel" style="width:30%;"><i><b>Your Bibliography:</b></i> </label><br /><br /><br />
-<div class="bibliographyWindow" style="border:solid black 1px; font-size:35px;width:70%;">Example of bibliography, example of bibliography</div>
+<div class="bibliographyWindow" style="border:solid black 1px; font-size:35px;width:70%;">{{authors[0].surname}}, {{authors[0].name[0]}}. {{authors[0].init}}., {{year}}. {{title}}. {{place}}: {{publisher}}</div>
+
+<!-- <div ng-show="stepsdata.edittion" class="bibliographyWindow" style="border:solid black 1px; font-size:35px;width:70%;">{{authors[0].surname}}, {{authors[0].name[0]}}. {{authors[0].init}}., {{year}}sjadmasdasmdvnv. {{title}}. {{place}}: {{publisher}}</div>
+
+
+<div ng-hide="stepsdata.edittion" class="bibliographyWindow" style="border:solid black 1px; font-size:35px;width:70%;">{{authors[0].surname}}, {{authors[0].name[0]}}. {{place}}:asdbmansbdmanbsmdnbamsnbdmanbsmdnbamsndbmansbdmnabmsd {{publisher}}</div>
+ -->
 </div><br /><br />
 <md-button style="background-color: mediumspringgreen;">See examples</md-button>
 <md-button style="background-color: mediumspringgreen;">Save</md-button>

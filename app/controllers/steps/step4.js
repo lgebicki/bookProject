@@ -6,11 +6,15 @@ angular.module("bookapp").controller("Step4Ctrl", function($scope, stepsdata, $s
     $scope.title = stepsdata.title
     $scope.publisher = stepsdata.publisher
     $scope.place = stepsdata.place
-    $scope.allauthors = stepsdata.mystuff
-    $scope.auth = stepsdata.mystuff
+    $scope.year = stepsdata.year
+    $scope.authorName = stepsdata.authorName
+    $scope.authorSurname = stepsdata.authorSurname
+    $scope.authors = stepsdata.authors
     $scope.place = stepsdata.place
-    $scope.surname = stepsdata.surname
     $scope.finalname= stepsdata.finalname
+    $scope.page= stepsdata.page
+    $scope.stepsdata = stepsdata
+
 
 
     $scope.nextStep = function(){

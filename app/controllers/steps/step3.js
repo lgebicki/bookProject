@@ -1,40 +1,51 @@
-angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $state, $firebaseAuth, $firebaseObject, $firebaseArray, $mdDialog, $http) {
+angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $state, $mdDialog, $http) {
 
     $scope.steps.set(3)
 
 
     $scope.type = stepsdata.step2
-    $scope.title = 'title'
+    $scope.page = ""
+    $scope.year = ""
+    $scope.place = ""
+    $scope.publisher = ""
+    $scope.title = ""
 
-    $scope.loading = true
+
+    $scope.loading = false
     $scope.data = {}
-
-    //this is authentification stuff - user id , etc
-    $scope.authObj = $firebaseAuth();
-    var firebaseUser = $scope.authObj.$getAuth();
-
-
-    //
-    // basic reference
-    //
-    var ref = firebase.database().ref(firebaseUser.uid);
-    //  reference to the list of items
-    var listref = ref.child("list")
+    $scope.list = [{
+            name: "",
+            init: "",
+            surname: ""
+         }]
 
 
-    var obj = $firebaseObject(ref);
-    var list = $firebaseArray(listref);
+    // //this is authentification stuff - user id , etc
+    // $scope.authObj = $firebaseAuth();
+    // var firebaseUser = $scope.authObj.$getAuth();
 
 
-    $scope.list = list;
+    // //
+    // // basic reference
+    // //
+    // var ref = firebase.database().ref(firebaseUser.uid);
+    // //  reference to the list of items
+    // var listref = ref.child("list")
 
-     obj.$bindTo($scope, "data").then(function() {
-      //here we got server data
-      $scope.loading = false
-      console.log($scope.data)
 
-      // $scope.data.ournewdata = "some random album title";  // will be saved to the database
-    });
+    // var obj = $firebaseObject(ref);
+    // var list = $firebaseArray(listref);
+
+
+    // $scope.list = list;
+
+    //  obj.$bindTo($scope, "data").then(function() {
+    //   //here we got server data
+    //   $scope.loading = false
+    //   console.log($scope.data)
+
+    //   // $scope.data.ournewdata = "some random album title";  // will be saved to the database
+    // });
 
     // $scope.addit = function(){
     //    list.$add({ text: "bar" })
@@ -50,10 +61,10 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
     $scope.authors = []
 
     $scope.addAuthor = function(){
-        list.$add({
-            name: "new author",
-            init: "initials",
-            surname: "surname"
+        $scope.list.push({
+            name: "",
+            init: "",
+            surname: ""
          })
         // $scope.authors.unshift({
         //      name: "new author",
@@ -62,29 +73,44 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
         // })
     }
     $scope.removeAuthor = function(){
-        list.$remove({
-            name: "new author",
-            init: "initials",
-            surname: "surname"
-        })
+        $scope.list.pop()
     }
+
+// var obj = $firebaseObject(list);
+// obj.$remove().then(function(remove) {
+// // data has been deleted locally and in the database
+// }, 
 
     $scope.getCitation = function(){
         console.log($scope.title)
         stepsdata.title = $scope.title
         stepsdata.publisher = $scope.publisher
         stepsdata.place = $scope.place
-        stepsdata.authors = $scope.authors
+        
+        stepsdata.year = $scope.year
+        stepsdata.authors = $scope.list
+        stepsdata.title = $scope.title
+
         var finalname = ""
         $scope.authors.forEach((item)=>{
-            finalname += item.name + ', '
+            finalname += authorName + ', '
         })
         $scope.authors.forEach((item)=>{
-            finalname += item.surname + ', '
+            finalname += authorSurname + ', '
         })
         finalname += '.'
         stepsdata.mystuff = $scope.searchQuery
-        // stepsdata.
+        stepsdata.place = $scope.place
+
+        if ($scope.endPage){
+            stepsdata.endPage = true
+            stepsdata.startpage = $scope.startpage
+            stepsdata.lastpage = $scope.lastpage
+        } else {
+            stepsdata.page = $scope.page
+        }
+
+        // stepsdata.authorSurname = $scope.authorSurname
         // stepsdata.options2 = $scope.input2model
 
         // stepsdata.step3data = {
