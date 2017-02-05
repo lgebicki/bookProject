@@ -17,7 +17,6 @@
 <div ng-hide="stepsdata.edittion" class="bibliographyWindow" style="border:solid black 1px; font-size:35px;width:70%;">{{authors[0].surname}}, {{authors[0].name[0]}}. {{place}}:asdbmansbdmanbsmdnbamsnbdmanbsmdnbamsndbmansbdmnabmsd {{publisher}}</div>
  -->
 </div><br /><br />
-<md-button style="background-color: mediumspringgreen;">See examples</md-button>
-<md-button style="background-color: mediumspringgreen;">Save</md-button>
-<md-button style="background-color: mediumspringgreen;" ng-click="nextStep()">Go to your texts</md-button>
+<md-button ng-show = "ifProject" ng-click="nextStep()" style="background-color: mediumspringgreen;">Go to projects</md-button>
+<md-button ui-sref="app.welcome" style="background-color: mediumspringgreen;">Home</md-button>
 </div>

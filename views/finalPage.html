@@ -15,12 +15,12 @@
             <md-content class="citation-block-content">
               <md-list flex>
                 <!-- <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader> -->
-                <md-list-item class="md-3-line citation-item-list" ng-repeat="item in todos" ng-click="null" >
+                <md-list-item class="md-3-line citation-item-list" ng-repeat="item in citationList" >
 
-                  <div class="md-list-item-text" layout="row" layout-align="space-between center">
+                  <div class="md-list-item-text" layout="row" layout-align="space-between center" style="padding-left: 15px">
 
-                    <h4>{{ item.what }}</h4>
-                    <md-button class="md-icon-button citation-item-button" aria-label="Use Android" >
+                    <h4 ng-click="displayItem($event, item, 'citation')">{{ item.text }}</h4>
+                    <md-button class="md-icon-button citation-item-button" aria-label="Use Android" ng-click = "removeItemCitation(item)" >
                         <md-icon class="material-icons ">delete</md-icon>
                     </md-button>
                   </div>
@@ -29,12 +29,30 @@
 
 
                 </md-list>
-                </md-content>
+            </md-content>
         </div>
         <div flex></div>
         <div class="item-content-block whiteback md-whiteframe-1dp">
 
             <div class="md-headline item-title"> Bibliography</div>
+            <md-content class="citation-block-content">
+              <md-list flex>
+                <!-- <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader> -->
+                <md-list-item class="md-3-line citation-item-list" ng-repeat="item in bibliographyList | orderBy:'text'" >
+
+                  <div class="md-list-item-text" layout="row" layout-align="space-between center" style="padding-left: 15px">
+
+                    <h4 ng-click="displayItem($event, item, 'bibliography')">{{ item.text }}</h4>
+                    <md-button class="md-icon-button citation-item-button" aria-label="Use Android" ng-click = "removeItemBibliography(item)">
+                        <md-icon class="material-icons ">delete</md-icon>
+                    </md-button>
+                  </div>
+                </md-list-item>
+                <md-divider ></md-divider>
+
+
+                </md-list>
+            </md-content>
         </div>
     </div>
 
