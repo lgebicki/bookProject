@@ -1,6 +1,7 @@
 angular.module("bookapp").controller("FinalCtrl", function($scope, $firebaseArray, $firebaseAuth, $state, $mdDialog) {
-
+angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
 	$scope.id = $state.params.id
+  $scope.movedBibliography = ""
   var movedBibliography = ""
 	// $scope.authObj = $firebaseAuth();
 	// var firebaseUser = $scope.authObj.$getAuth();
@@ -34,7 +35,7 @@ angular.module("bookapp").controller("FinalCtrl", function($scope, $firebaseArra
   $scope.removeItemBibliography = function(item){
     $scope.bibliographyList.$save(item)
     var movedBibliography = item
-    console.log("moved")
+    console.log("This data is going to be move to the trash")
     console.log(item)
     $scope.bibliographyList.$remove(item)
     console.log("removed")
