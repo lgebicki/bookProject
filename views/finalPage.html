@@ -1,12 +1,13 @@
 <div class="finalPage-container" layout="column">
 
     <div class="final-header-container whiteback md-whiteframe-1dp" layout="row" layout-align="space-around center">
-              <md-button class="md-raised md-primary" ui-sref="app.steps.one({id: id})">Add citation</md-button>
-              <md-button class="md-raised md-primary">Summary</md-button>
-              <md-button class="md-raised md-primary">New Project</md-button>
-              <md-button class="md-raised md-primary">Your Projects</md-button>
+              <md-button class="md-raised md-primary" ui-sref="app.steps.two({id: id})">Add citation</md-button>
+              <!-- <md-button class="md-raised md-primary" ui-sref="projects.html">Summary</md-button> -->
+              <md-button class="md-raised md-primary" ui-sref="app.projects({id: id})">Projects</md-button>
+             <!--  <md-button class="md-raised md-primary">Your Projects</md-button> -->
               <md-button class="md-raised md-primary">Help </md-button>
               <md-button class="md-raised md-primary">Settings</md-button>
+              <md-button class="md-raised md-primary" ui-sref="app.trash({id: id})">Trash</md-button>
 
     </div>
     <div class="final-content-block" layout="row">

@@ -81,5 +81,12 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
       app: {templateUrl: "views/projects.html", controller: 'ProjectsCtrl'}
     }
   })
+   $stateProvider.state('app.trash',{
+    url: '/trash?id',
+    abstract: false,
+    views: {
+      app: {templateUrl: "views/trash.html", controller: 'TrashCtrl'}
+    }
+  })
 
 })
