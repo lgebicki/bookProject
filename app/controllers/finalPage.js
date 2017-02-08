@@ -20,28 +20,55 @@ angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
   var basicRef = firebase.database().ref(firebaseUser.uid).child('projects').child($state.params.id);
   $scope.citationList = $firebaseArray(basicRef.child('citations'));
   $scope.bibliographyList = $firebaseArray(basicRef.child('bibliography'));
-  $scope.citationList.$loaded().then(function(x){
-    console.log(x)
-  })
-  $scope.bibliographyList.$loaded().then(function(x){
-    console.log(x)
-  })
+  $scope.trashList = $firebaseArray(basicRef.child('trash'));
+  // $scope.citationList.$loaded().then(function(x){
+  //   console.log(x)
+  // })
+  // $scope.bibliographyList.$loaded().then(function(x){
+  //   console.log(x)
+  // })
 
 
   $scope.removeItemCitation = function(item){
-    $scope.citationList.$remove(item)
+    console.log(item)
+    $scope.trashList.$add({
+      type: 'citation',
+      data: item
+    }).then(function(){
+      $scope.citationList.$remove(item)  
+    })
+    
   }
 
   $scope.removeItemBibliography = function(item){
-    $scope.bibliographyList.$save(item)
-    var movedBibliography = item
-    console.log("This data is going to be move to the trash")
     console.log(item)
-    $scope.bibliographyList.$remove(item)
-    console.log("removed")
+    $scope.trashList.$add({
+      type: 'bibliography',
+      data: item
+    }).then(function(){
+      $scope.bibliographyList.$remove(item)  
+    })
 
   }
 
+  $scope.restoreItem = function(item){
+    console.log(item)
+    if (item.type == 'citation'){
+      $scope.citationList.$add(item.data).then(function(){
+          $scope.trashList.$remove(item)  
+        })    
+    }
+    if (item.type == 'bibliography'){
+      $scope.bibliographyList.$add(item.data).then(function(){
+          $scope.trashList.$remove(item)  
+        })    
+    }
+  
+  }
+
+  $scope.removeTrashItem = function(item){
+    $scope.trashList.$remove(item)
+  }
 
   $scope.displayItem = function(ev, item, type){
     console.log(item)
