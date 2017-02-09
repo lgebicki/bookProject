@@ -21,6 +21,7 @@ angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
   $scope.citationList = $firebaseArray(basicRef.child('citations'));
   $scope.bibliographyList = $firebaseArray(basicRef.child('bibliography'));
   $scope.trashList = $firebaseArray(basicRef.child('trash'));
+  $scope.toDoList = $firebaseArray(basicRef.child('toDoList'));
   // $scope.citationList.$loaded().then(function(x){
   //   console.log(x)
   // })

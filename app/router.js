@@ -88,5 +88,33 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
       app: {templateUrl: "views/trash.html", controller: 'TrashCtrl'}
     }
   })
+    $stateProvider.state('app.toDoList',{
+    url: '/todolist?id',
+    abstract: false,
+    views: {
+      app: {templateUrl: "views/todolist.html", controller: 'todoCtrl'}
+    }
+  })
+    $stateProvider.state('app.topicThesis',{
+    url: '/topicThesis?id',
+    abstract: false,
+    views: {
+      app: {templateUrl: "views/topicThesis.html", controller: 'TopicThesisCtrl'}
+    }
+  }) 
+    $stateProvider.state('app.outline',{
+    url: '/outline?id',
+    abstract: false,
+    views: {
+      app: {templateUrl: "views/outline.html", controller: 'OutlineCtrl'}
+    }
+  })
+    $stateProvider.state('app.writePaper',{
+    url: '/writePaper?id',
+    abstract: false,
+    views: {
+      app: {templateUrl: "views/writePaper.html", controller: 'WritePaperCtrl'}
+    }
+  })
 
 })
