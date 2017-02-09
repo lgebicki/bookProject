@@ -1,1 +1,25 @@
-<h1> Outline content </h1>
+<div class="step3-container md-whiteframe-1dp" >
+
+
+
+	<div class="loader-container" layout="column" layout-align="center center" ng-show="loading">
+	    <md-progress-circular  class="md-accent" md-diameter="40"></md-progress-circular>
+	</div>
+
+
+	<div ng-show="!loading">
+		<div ng-show="type == 'Book'">
+	    <ng-include  src="'views/steps/step3/book.html'" />
+	  </div>
+	  <div ng-show="type == 'Song'">
+	    <ng-include  src="'views/steps/step3/song.html'" />
+	  </div>
+	  
+	  <div layout="row" layout-align="center start" >
+	     <md-button class="md-raised md-primary" ng-click="getCitation()">Get citations</md-button>
+	  </div>
+	</div>
+  
+
+
+</div>
