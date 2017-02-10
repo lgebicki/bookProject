@@ -1,7 +1,7 @@
 // Within the square brackets - we specify applicaiton dependencies(third-party libraries)
 // In our case it's "Angular-Material" - for interface components
-// And badass UI-Router which make smart pagination
-var app = angular.module('bookapp', ['ngMaterial', 'ui.router', 'firebase', 'md.data.table'])
+// And badass UI-Router which make smart pagination, 
+var app = angular.module('bookapp', ['ngMaterial', 'ui.router', 'firebase', 'md.data.table', 'angularTrix'])
 
 app.config(function($mdThemingProvider){
   $mdThemingProvider.theme('default').primaryPalette('teal')
