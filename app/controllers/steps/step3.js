@@ -9,7 +9,7 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
     $scope.place = ""
     $scope.publisher = ""
     $scope.title = ""
-
+    $scope.citedText = ""
 
     $scope.loading = false
     $scope.data = {}
@@ -90,15 +90,9 @@ angular.module("bookapp").controller("Step3Ctrl", function($scope, stepsdata, $s
         stepsdata.year = $scope.year
         stepsdata.authors = $scope.list
         stepsdata.title = $scope.title
+        stepsdata.citedText = $scope.citedText
 
-        var finalname = ""
-        $scope.authors.forEach((item)=>{
-            finalname += authorName + ', '
-        })
-        $scope.authors.forEach((item)=>{
-            finalname += authorSurname + ', '
-        })
-        finalname += '.'
+        
         stepsdata.mystuff = $scope.searchQuery
         stepsdata.place = $scope.place
 

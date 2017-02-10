@@ -1,15 +1,21 @@
 <div class="step4-container">
 <div class="readyCitation" layout="row" style="font-size:20px;margin-top:40px;" >
-<label class="citationLabel" style="width:30%;"> <i><b>Your citation: </b></i>  </label><br /><br /><br />
-<div class="citationWindow" style="border: solid black 1px; font-size:35px; width:70%;"> {{authors[0].surname}} ({{year}} 
-	<span ng-hide="stepsdata.endPage">p. {{page}})</span>
-	<span ng-show="stepsdata.endPage">pp. {{stepsdata.startpage}} - {{stepsdata.lastpage}})</span>
-	
-</div>
-</div><br /><br />
+	<label class="citationLabel" style="width:30%;"> <i><b> citation: </b></i>  </label><br /><br /><br />
+		<div class="citationWindow" style="border: solid black 1px; font-size:35px; width:70%;"> {{authors[0].surname}} ({{year}} 
+			<span ng-hide="stepsdata.endPage">p. {{page}})</span>
+			<span ng-show="stepsdata.endPage">pp. {{stepsdata.startpage}} - {{stepsdata.lastpage}})</span>
+		</div>
+</div> <br /><br />
 <div class="readyBibliography" layout="row" style="font-size:20px; margin-top:40px;" >
-<label class="bibliographyLabel" style="width:30%;"><i><b>Your Bibliography:</b></i> </label><br /><br /><br />
-<div class="bibliographyWindow" style="border:solid black 1px; font-size:35px;width:70%;">{{authors[0].surname}}, {{authors[0].name[0]}}. {{authors[0].init}}., {{year}}. {{title}}. {{place}}: {{publisher}}</div>
+<label class="bibliographyLabel" style="width:30%;"><i><b> Bibliography:</b></i> </label><br /><br /><br />
+<div class="bibliographyWindow" style="border:solid black 1px; font-size:35px;width:70%;">{{authors[0].surname}}, {{authors[0].name[0]}}. {{authors[0].init}}., {{year}}. {{title}}. {{place}}: {{publisher}}</div>  <br /><br /> <br /><br />
+
+<div class="readyCitedText" layout="row" style="font-size:20px;margin-top:40px;" >
+	<label class="citedTextLabel" style="width:30%;"> <i><b>Cited Text: </b></i>  </label><br /><br /><br />
+		<div class="citedTextWindow" style="border: solid black 1px; font-size:35px; width:70%;"> {{citedText}} 
+			
+		</div>
+</div> 
 
 <!-- <div ng-show="stepsdata.edittion" class="bibliographyWindow" style="border:solid black 1px; font-size:35px;width:70%;">{{authors[0].surname}}, {{authors[0].name[0]}}. {{authors[0].init}}., {{year}}sjadmasdasmdvnv. {{title}}. {{place}}: {{publisher}}</div>
 

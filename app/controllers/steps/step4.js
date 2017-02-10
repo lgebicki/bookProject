@@ -13,6 +13,7 @@ angular.module("bookapp").controller("Step4Ctrl", function($scope, stepsdata, $s
     $scope.place = stepsdata.place
     $scope.finalname= stepsdata.finalname
     $scope.page= stepsdata.page
+    $scope.citedText= stepsdata.citedText
     $scope.stepsdata = stepsdata
 
     $scope.ifProject = false
@@ -47,6 +48,7 @@ angular.module("bookapp").controller("Step4Ctrl", function($scope, stepsdata, $s
       var basicRef = firebase.database().ref(firebaseUser.uid).child('projects').child($state.params.id);
       var citationList = $firebaseArray(basicRef.child('citations'));
       var bibliographyList = $firebaseArray(basicRef.child('bibliography'));
+      var citedTextList = $firebaseArray(basicRef.child('citedText'));
       citationList.$add({ text: citation })
       bibliographyList.$add({ text: bibliography })
 

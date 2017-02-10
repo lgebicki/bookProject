@@ -7,6 +7,12 @@
         <md-icon class="material-icons ">search</md-icon>
     </md-button>
 </div>
+<div layout="row" layout-align="center start" >
+  <md-input-container class="md-icon-float md-block search-input">
+       <label>Cited Text</label>
+       <input  name="citedText" type="citedText" ng-model="$parent.citedText" >
+  </md-input-container>
+</div>
 <div layout="row">
   <div flex="33" layout="column" layout-align="start center">
     <div ng-repeat="item in list">
