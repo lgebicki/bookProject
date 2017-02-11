@@ -53,6 +53,17 @@ angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
 
   }
 
+  $scope.removeItemCitedText = function(item){
+    console.log(item)
+    $scope.trashList.$add({
+      type: 'citedText',
+      data: item
+    }).then(function(){
+      $scope.citedTextList.$remove(item)  
+    })
+
+  }
+
   $scope.restoreItem = function(item){
     console.log(item)
     if (item.type == 'citation'){
