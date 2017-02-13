@@ -51,7 +51,7 @@ angular.module("bookapp").controller("Step4Ctrl", function($scope, stepsdata, $s
       var citedTextList = $firebaseArray(basicRef.child('citedText'));
       citationList.$add({ text: citation })
       bibliographyList.$add({ text: bibliography })
-      // citedText.$add({ text: citedText })
+      citedTextList.$add({ text: stepsdata.citedText })
 
 
     }  
