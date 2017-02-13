@@ -16,6 +16,12 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     abstract: true,
     views: {
       root: {templateUrl: "views/app.html", controller: 'AppCtrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
   })
   $stateProvider.state('app.welcome',{
@@ -23,6 +29,12 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     abstract: false,
     views: {
       app: {templateUrl: "views/welcome.html", controller: 'WelcomeCtrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
   })
    $stateProvider.state('app.steps',{
@@ -30,6 +42,12 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     abstract: true,
     views: {
       app: {templateUrl: "views/steps/main.html", controller: 'StepMainCtrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
   })
   $stateProvider.state('app.steps.one',{
@@ -37,6 +55,12 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     abstract: false,
     views: {
       steps: {templateUrl: "views/steps/step1.html", controller: 'Step1Ctrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
   })
   $stateProvider.state('app.steps.two',{
@@ -44,6 +68,12 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     abstract: false,
     views: {
       steps: {templateUrl: "views/steps/step2.html", controller: 'Step2Ctrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
   })
   $stateProvider.state('app.steps.three',{
@@ -51,6 +81,12 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     abstract: false,
     views: {
       steps: {templateUrl: "views/steps/step3.html", controller: 'Step3Ctrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
   })
   $stateProvider.state('app.steps.four',{
@@ -58,6 +94,12 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     abstract: false,
     views: {
       steps: {templateUrl: "views/steps/step4.html", controller: 'Step4Ctrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
   })
    $stateProvider.state('app.steps.five',{
@@ -65,6 +107,12 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     abstract: false,
     views: {
       steps: {templateUrl: "views/steps/step5.html", controller: 'Step5Ctrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
   })
    $stateProvider.state('app.finalPage',{
@@ -72,6 +120,12 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     abstract: false,
     views: {
       app: {templateUrl: "views/finalPage.html", controller: 'FinalCtrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
   })
    $stateProvider.state('app.projects',{
@@ -79,6 +133,12 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     abstract: false,
     views: {
       app: {templateUrl: "views/projects.html", controller: 'ProjectsCtrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
   })
    $stateProvider.state('app.trash',{
@@ -86,6 +146,12 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     abstract: false,
     views: {
       app: {templateUrl: "views/trash.html", controller: 'TrashCtrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
   })
     $stateProvider.state('app.toDoList',{
@@ -93,6 +159,12 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     abstract: false,
     views: {
       app: {templateUrl: "views/todolist.html", controller: 'todoCtrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
   })
     $stateProvider.state('app.topicThesis',{
@@ -100,13 +172,25 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     abstract: false,
     views: {
       app: {templateUrl: "views/topicThesis.html", controller: 'TopicThesisCtrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
-  }) 
+  })
     $stateProvider.state('app.outline',{
     url: '/outline?id',
     abstract: false,
     views: {
       app: {templateUrl: "views/outline.html", controller: 'OutlineCtrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
   })
     $stateProvider.state('app.writePaper',{
@@ -114,6 +198,12 @@ angular.module("bookapp").config(function($stateProvider, $urlRouterProvider, $l
     abstract: false,
     views: {
       app: {templateUrl: "views/writePaper.html", controller: 'WritePaperCtrl'}
+    },
+    resolve: {
+      user: function($firebaseAuth){
+        var authObj = $firebaseAuth();
+        return authObj.$waitForSignIn()
+      }
     }
   })
 
