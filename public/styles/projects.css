@@ -73,3 +73,40 @@ textarea:focus, input:focus, button:focus, li:focus, a:focus, select:focus, md-i
 .citation-item-list:hover  .citation-item-button{
   opacity: 1!important;
 }
+.tabsdemoDynamicHeight md-content {
+  background-color: transparent !important; }
+  .tabsdemoDynamicHeight md-content md-tabs {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1; }
+    .tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+      background: white; }
+  .tabsdemoDynamicHeight md-content h1:first-child {
+    margin-top: 0; }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+*/
+
+
+
+
+
+
+
+
+.write-container{
+  height: 500px;
+}
+
+trix-editor{
+  height: 100%!important;
+  background-color: white;
+}
+.write-navigation{
+  width: 100px;
+}
+.write-pagination{
+  margin-top: 70px;
+}

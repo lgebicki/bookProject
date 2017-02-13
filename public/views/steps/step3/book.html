@@ -1,0 +1,93 @@
+<div layout="row" layout-align="center start" >
+  <md-input-container class="md-icon-float md-block search-input">
+       <label>Search</label>
+       <input  name="search" type="text" ng-model="$parent.searchQuery" >
+  </md-input-container>
+  <md-button class="md-fab md-mini md-primary" aria-label="Use Android" ng-click="showDialog()">
+        <md-icon class="material-icons ">search</md-icon>
+    </md-button>
+</div>
+<div layout="row" layout-align="center start" >
+  <md-input-container class="md-icon-float md-block search-input">
+       <label>Cited Text</label>
+       <input  name="citedText" type="citedText" ng-model="$parent.citedText" >
+  </md-input-container>
+</div>
+<div layout="row">
+  <div flex="33" layout="column" layout-align="start center">
+    <div ng-repeat="item in list">
+      <md-input-container class="md-icon-float md-block input-parameter">
+          <label>Author name</label>
+          <input ng-model="item.name"  name="authorName" type="text" >
+      </md-input-container>
+      <md-input-container class="md-icon-float md-block input-parameter">
+          <label>Author initials</label>
+          <input ng-model="item.init" name="authorInitials" type="text" >
+      </md-input-container>
+      <md-input-container class="md-icon-float md-block input-parameter">
+          <label>Author surname</label>
+          <input ng-model="item.surname" name="AuthorSurname" type="text" >
+      </md-input-container>
+      <hr />
+    </div>
+   
+    <div layout="row">
+    <md-button class="md-fab md-mini md-primary" aria-label="Use Android" ng-click="addAuthor()">
+        <md-icon class="material-icons ">add</md-icon>
+    </md-button> 
+    <md-button class="md-fab md-mini md-primary" aria-label="Use Android" ng-click="removeAuthor()">
+        <md-icon class="material-icons">remove</md-icon>
+    </md-button>
+    </div>
+  </div>
+
+
+  <div flex="33" layout="column">
+    <md-input-container class="md-icon-float md-block input-parameter">
+         <label>Title</label>
+         <input ng-model="$parent.title" name="title" type="text" >
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block input-parameter">
+         <label>Publisher</label>
+         <input ng-model="$parent.publisher" name="publisher" type="text" >
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block input-parameter">
+         <label>Place of publication</label>
+         <input ng-model="$parent.place" name="place" type="text" >
+    </md-input-container>
+  </div>
+
+
+
+  <div flex="33" layout="column">
+    <md-input-container class="md-icon-float md-block input-parameter">
+         <label>Edition</label>
+         <input ng-model="data.ournewdata"  name="edition" type="text" >
+    </md-input-container>
+    <div class="morePages" ng-show="endPage">
+    <md-input-container class="md-icon-float md-block input-parameter">
+         <label>First Page</label>
+         <input  name="page" type="text" ng-model="$parent.startpage" >
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block input-parameter" >
+         <label>Last Page</label>
+         <input  name="page" type="text" ng-model="$parent.lastpage" >
+    </md-input-container>
+    </div>
+    <div class="onePage" ng-hide="endPage" >
+         <md-input-container class="md-icon-float md-block input-parameter">
+         <label>Page</label>
+         <input  name="page" type="text" ng-model="$parent.page" >
+         </md-input-container>
+    </div>
+    <div flex-gt-sm="50">
+          <md-checkbox ng-model="$parent.endPage" aria-label="Checkbox 1">
+            More pages
+          </md-checkbox>
+        </div>
+    <md-input-container class="md-icon-float md-block input-parameter">
+         <label>Year</label>
+         <input  name="year" type="text" ng-model="$parent.year">
+    </md-input-container>
+  </div>
+</div>

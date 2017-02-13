@@ -1,40 +1,168 @@
 <div class="finalPage-container" layout="column">
 
     <div class="final-header-container whiteback md-whiteframe-1dp" layout="row" layout-align="space-around center">
-              <md-button class="md-raised md-primary">Summary</md-button>
-              <md-button class="md-raised md-primary">New Project</md-button>
-              <md-button class="md-raised md-primary">Your Projects</md-button>
-              <md-button class="md-raised md-primary">Help </md-button>
-              <md-button class="md-raised md-primary">Settings</md-button>
+              <md-button class="md-raised md-primary" ui-sref="app.toDoList({id: id})">To Do List</md-button>
+              <md-button class="md-raised md-primary" ui-sref="app.topicThesis({id: id})">Topic And Thesis</md-button>
+              <md-button class="md-raised md-primary" ui-sref="app.outline({id: id})">Outline</md-button>
+              <md-button class="md-raised md-primary" ui-sref="app.steps.two({id: id})">Add citation</md-button>
+              <md-button class="md-raised md-primary" ui-sref="app.projects({id: id})">Projects</md-button>
+              <md-button class="md-raised md-primary" ui-sref="app.writePaper({id: id})">Write Paper</md-button>
 
+              
     </div>
-    <div class="final-content-block" layout="row">
+
+
+
+    <div ng-cloak="" class="tabsdemoDynamicHeight" ng-app="MyApp">
+      <md-content>
+        <md-tabs md-dynamic-height="" md-border-bottom="">
+          <md-tab label="Citations">
+            <md-content class="md-padding">
+              <h1 class="md-display-2">Citations</h1>
+              
+              <div class="item-content-block whiteback md-whiteframe-1dp">
+                  <md-content class="citation-block-content" >
+                    <md-list flex>
+                      <!-- <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader> -->
+                      <md-list-item class="md-3-line citation-item-list" ng-repeat="item in citationList" >
+
+                        <div class="md-list-item-text" layout="row" layout-align="space-between center" style="padding-left: 15px">
+
+                          <h4 ng-click="displayItem($event, item, 'citation')">{{ item.text }}</h4>
+                          <md-button class="md-icon-button citation-item-button" aria-label="Use Android" ng-click = "removeItemCitation(item)" >
+                              <md-icon class="material-icons ">delete</md-icon>
+                          </md-button>
+                        </div>
+                      </md-list-item>
+                      <md-divider ></md-divider>
+
+
+                      </md-list>
+                  </md-content>
+              </div>
+        </md-content>
+      </md-tab>
+      <md-tab label="Bibliography">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Bibliography</h1>
+           <div flex></div>
         <div class="item-content-block whiteback md-whiteframe-1dp">
-            <div class="md-headline item-title">  Citations</div>
+
             <md-content class="citation-block-content">
               <md-list flex>
                 <!-- <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader> -->
-                <md-list-item class="md-3-line citation-item-list" ng-repeat="item in todos" ng-click="null" >
-                  
-                  <div class="md-list-item-text" layout="row" layout-align="space-between center">
-                    
-                    <h4>{{ item.what }}</h4>
-                    <md-button class="md-icon-button citation-item-button" aria-label="Use Android" >
+                <md-list-item class="md-3-line citation-item-list" ng-repeat="item in bibliographyList | orderBy:'text'" >
+
+                  <div class="md-list-item-text" layout="row" layout-align="space-between center" style="padding-left: 15px">
+
+                    <h4 ng-click="displayItem($event, item, 'bibliography')">{{ item.text }}</h4>
+                    <md-button class="md-icon-button citation-item-button" aria-label="Use Android" ng-click = "removeItemBibliography(item)">
                         <md-icon class="material-icons ">delete</md-icon>
                     </md-button>
                   </div>
                 </md-list-item>
                 <md-divider ></md-divider>
-               
-                
+
+
                 </md-list>
-                </md-content>          
+            </md-content>
         </div>
-        <div flex></div>
+        </md-content>
+      </md-tab>
+      <md-tab label="To Do List">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Texts</h1>
+          <p>Integer turpis erat</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="Topic">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Texts</h1>
+          <p>Integer turpis erat</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="Thesis">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Texts</h1>
+          <p>Integer turpis erat</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="Cited Texts">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Cited Texts</h1>
+           <div flex></div>
         <div class="item-content-block whiteback md-whiteframe-1dp">
-            
-            <div class="md-headline item-title"> Bibliography</div>
+
+            <md-content class="citedText-block-content">
+              <md-list flex>
+                <!-- <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader> -->
+                <md-list-item class="md-3-line citedText-item-list" ng-repeat="item in citedTextList">
+
+                  <div class="md-list-item-text" layout="row" layout-align="space-between center" style="padding-left: 15px">
+
+                    <h4 ng-click="displayItem($event, item, 'citedText')">{{ item.text }}</h4>
+                    <md-button class="md-icon-button citedText-item-button" aria-label="Use Android" ng-click = "removeItemCitedText(item)">
+                        <md-icon class="material-icons ">delete</md-icon>
+                    </md-button>
+                  </div>
+                </md-list-item>
+                <md-divider ></md-divider>
+
+
+                </md-list>
+            </md-content>
         </div>
+        </md-content>
+      </md-tab>
+      <md-tab label="Outline">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Texts</h1>
+          <p>Integer turpis erat</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="Notes">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Texts</h1>
+          <p>Integer turpis erat</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="Trash">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Trash</h1>
+          <div class="item-content-block whiteback md-whiteframe-1dp">
+                  <md-content class="citation-block-content" >
+                    <md-list flex>
+                      <!-- <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader> -->
+                      <md-list-item class="md-3-line citation-item-list" ng-repeat="item in trashList" >
+
+                        <div class="md-list-item-text" layout="row" layout-align="space-between center" style="padding-left: 15px">
+
+                          <h4 ng-click="displayItem($event, item, 'citation')">{{ item.data.text }}</h4>
+                          <div layout="row">
+                             <md-button class="md-icon-button citation-item-button" aria-label="Use Android" ng-click = "removeTrashItem(item)" >
+                                <md-icon class="material-icons ">delete</md-icon>
+                            </md-button>
+                            <md-button class="md-icon-button citation-item-button" aria-label="Use Android" ng-click ="restoreItem(item)" >
+                                <md-icon class="material-icons ">undo</md-icon>
+                            </md-button>
+                          </div>
+                         
+                        </div>
+                      </md-list-item>
+                      <md-divider ></md-divider>
+
+
+                      </md-list>
+                  </md-content>
+              </div>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>
+
+
+       
     </div>
 
 </div>
@@ -45,7 +173,7 @@
 <div class="navigationButtons">New Project</div>
 <div class="navigationButtons">Help</div>
 <div class="navigationButtons">Settings</div>
-    </div> 
+    </div>
 <div class="step5-container">
 <div class="workspace" layout="row">
 
@@ -54,7 +182,7 @@
     <div>Your Citations</div>
     <div>Your Your Bibliographies</div>
     <div>Your Papers</div>
-    
+
 </div>
 <div class="currentProjectWindow" layout="row" style="width:70%; border: solid red">
     <div clas="currentCitations" layout="column" style="width:50%; text-align:left">
@@ -65,17 +193,17 @@
         <div class="citation">4c</div>
     </div>
     <div clas="currentBibliography" layout="column" style="width:50%; text-align:left">
-       <label>Your Bibliography</label>       
+       <label>Your Bibliography</label>
         <div class="bibliography">1b</div>
         <div class="bibliography">2b</div>
         <div class="bibliography">3b</div>
         <div class="bibliography">4b</div>
         <div class="bibliography">5b</div>
-       
-        
+
+
     </div>
 
-    
+
 </div>
 </div>
 </div> -->

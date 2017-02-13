@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles/steps.css">
     <link rel="stylesheet" href="styles/projects.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/daniel-nagy/md-data-table/a9b7561d/dist/md-data-table.min.css">
+    <link rel="stylesheet" type="text/css" href="trix-master/dist/trix.css">
 
 
     <!-- A bunch of included libraries -->
@@ -22,22 +23,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
     <script src="https://unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
 
     <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/abdmob/x2js/185e410b/xml2json.min.js" ></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/daniel-nagy/md-data-table/a9b7561d/dist/md-data-table.min.js"></script>
+    <script type="text/javascript" src="trix-master/dist/trix.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/sachinchoolur/angular-trix/3eee4444/dist/angular-trix.js"></script>
+
 
 
 
     <script>
       // Initialize Firebase
       var config = {
-        apiKey: "AIzaSyCd1zgwBvb5wl1lAaYp4zgSaMql_iZFQT8",
-        authDomain: "books-9da26.firebaseapp.com",
-        databaseURL: "https://books-9da26.firebaseio.com",
-        storageBucket: "books-9da26.appspot.com",
-        messagingSenderId: "369884149189"
+        apiKey: "AIzaSyCEzf5gHWgH2usIdxrFE5AqpPLbvyp6g24",
+        authDomain: "bookproject-c17eb.firebaseapp.com",
+        databaseURL: "https://bookproject-c17eb.firebaseio.com",
+        storageBucket: "bookproject-c17eb.appspot.com",
+        messagingSenderId: "806298652581"
       };
       firebase.initializeApp(config);
     </script>
@@ -57,6 +63,10 @@
     <script src="app/controllers/steps/main.js"></script>
     <script src="app/controllers/finalPage.js"></script>
     <script src="app/controllers/projects.js"></script>
+    <script src="app/controllers/toDoList.js"></script>
+    <script src="app/controllers/topicThesis.js"></script>
+    <script src="app/controllers/outline.js"></script>
+    <script src="app/controllers/writePaper.js"></script>
 
 
     <script src="app/factories/steps.js"></script>

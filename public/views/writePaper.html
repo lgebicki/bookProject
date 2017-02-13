@@ -1,0 +1,32 @@
+<h1> Write Paper Workspace</h1>
+
+
+<div class="write-container" layout="row" >
+	<div class="write-navigation" layout="column" layout-align="center center">
+		<md-button class="md-fab md-mini md-primary" aria-label="Use Android" ng-disabled="page.current == 1" ng-click="page.turnLeft()">
+	        <md-icon class="material-icons">keyboard_arrow_left</md-icon>
+	    </md-button>
+	</div>
+	<div class="editor-container">
+		<!-- <trix-editor angular-trix ng-model="content" trix-change="updatetext()"></trix-editor>	 -->
+		<!-- <trix-editor ng-model="trix" angular-trix trix-initialize="trixInitialize(e, editor);" trix-change="updatetext(e, editor);" ></trix-editor> -->
+		<trix-editor class="trix-content" ng-model="content" angular-trix  trix-change="updatetext(e, editor);" ></trix-editor>
+
+	</div>
+	
+	<div class="write-navigation" layout="column" layout-align="center center">
+		<md-button class="md-fab md-mini md-primary" aria-label="Use Android" ng-click="page.turnRight()">
+	        <md-icon class="material-icons"  ng-hide="page.current == page.max">keyboard_arrow_right</md-icon>
+	        <md-icon class="material-icons" ng-show="page.current == page.max">add</md-icon>
+	    </md-button>
+	</div>
+</div>
+
+<div class="write-pagination md-title" layout="row" layout-align="center start">
+	<span>{{page.current}}</span>
+	<span>/</span>
+	<span>{{page.max}}</span>
+</div>
+
+
+
